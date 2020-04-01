@@ -1,0 +1,11 @@
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Data.dll
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Data.pdb
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Entities.dll
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Entities.pdb
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\obj\Debug\Data.dll
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\obj\Debug\Data.pdb

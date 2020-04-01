@@ -7,10 +7,10 @@ using System.Web.Http;
 
 namespace PharmaWebAPI.Controllers
 {
-    public class ValuesController : ApiController
+    public class MedicineController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public string[] Get()
         {
             return new string[] { "value1", "value2" };
         }
