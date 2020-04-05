@@ -1,0 +1,3 @@
+﻿1. OAuth Token based authentication.
+2. Logging mechanism.
+3. SOLID principles
