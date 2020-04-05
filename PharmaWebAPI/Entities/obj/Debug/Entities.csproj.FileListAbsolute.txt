@@ -3,3 +3,4 @@ C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Entities\bin\D
 C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Entities\obj\Debug\Entities.dll
 C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Entities\obj\Debug\Entities.pdb
+C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Entities\obj\Debug\Entities.csprojAssemblyReference.cache

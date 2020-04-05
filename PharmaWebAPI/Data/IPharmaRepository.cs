@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    interface IPharmaRepository
+    public interface IPharmaRepository
     {
         List<Medicine> FetchMedicines(string searchText = "");
 

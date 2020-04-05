@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +11,32 @@ namespace PharmaWebAPI.Controllers
 {
     public class MedicineController : ApiController
     {
-        // GET api/values
-        public string[] Get()
+        private readonly IPharmaRepository _pharmaRepository;
+        public MedicineController(IPharmaRepository pharmaRepository)
         {
-            return new string[] { "value1", "value2" };
+            _pharmaRepository = pharmaRepository;
+        }
+
+        // GET api/values
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                var medicines = _pharmaRepository.FetchMedicines();
+                if (medicines != null && medicines.Any())
+                {
+                    return Ok(medicines);
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         // GET api/values/5
@@ -22,8 +46,19 @@ namespace PharmaWebAPI.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post(Medicine medicine)
         {
+            try
+            {
+                var repository = new PharmaRepository();
+                repository.AddMedicine(medicine);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         // PUT api/values/5
