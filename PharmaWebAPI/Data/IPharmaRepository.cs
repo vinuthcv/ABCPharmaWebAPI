@@ -13,5 +13,9 @@ namespace Data
 
         bool AddMedicine(Medicine medicine);
 
+        bool DeleteMedicine(int id);
+
+        bool UpdateMedicine(Medicine medicine);
+
     }
 }

@@ -20,15 +20,20 @@ namespace Data
                 medicine.Id = count;
 
                 var medicines = FetchMedicines();
+
+                var Id = medicines.OrderByDescending(x => x.Id).FirstOrDefault();
+
+                if (Id != null)
+                {
+                    medicine.Id = ++Id.Id;
+                }
+
                 if (medicines != null)
                 {
                     medicines.Add(medicine);
 
-                    using (StreamWriter file = File.CreateText(@"C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\Medicines.json"))
-                    {
-                        JsonSerializer serializer = new JsonSerializer();
-                        serializer.Serialize(file, medicines);
-                    }
+                    WriteToFile(medicines);
+
                     success = true;
                     count++;
                 }
@@ -53,7 +58,19 @@ namespace Data
                         var data = JsonConvert.DeserializeObject<List<Medicine>>(stream);
                         if (data != null && data.Any())
                         {
-                            medicines.AddRange(data);
+                            if (!string.IsNullOrEmpty(searchText))
+                            {
+                                var filteredData = data.Where(x => x.Name.ToLower().Contains(searchText.ToLower()));
+                                if (filteredData != null && filteredData.Any())
+                                {
+                                    medicines.AddRange(filteredData);
+                                }
+                            }
+                            else
+                            {
+
+                                medicines.AddRange(data);
+                            }
                         }
                     }
                 }
@@ -65,6 +82,85 @@ namespace Data
             }
 
             return medicines;
+        }
+
+        public bool DeleteMedicine(int id)
+        {
+            bool success = false;
+
+            try
+            {
+                var medicines = FetchMedicines();
+                if (medicines != null && medicines.Any())
+                {
+                    var medicine = medicines.FirstOrDefault(x => x.Id == id);
+                    if (medicine != null)
+                    {
+                        medicines.Remove(medicine);
+
+                        WriteToFile(medicines);
+
+                        success = true;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return success;
+        }
+
+        public bool UpdateMedicine(Medicine medicine)
+        {
+            bool success = false;
+
+            try
+            {
+                var medicines = FetchMedicines();
+                if (medicines != null && medicines.Any())
+                {
+                    var currentMedicine = medicines.FirstOrDefault(x => x.Id == medicine.Id);
+                    if (currentMedicine != null)
+                    {
+                        medicines.Remove(currentMedicine);
+
+                        medicines.Add(medicine);
+
+                        WriteToFile(medicines);
+
+                        success = true;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return success;
+        }
+
+        private void WriteToFile(List<Medicine> medicines)
+        {
+            try
+            {
+                using (StreamWriter file = File.CreateText(@"C:\Users\Admin\source\repos\vinuthcv\ABCPharmaWebAPI\PharmaWebAPI\Data\Medicines.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, medicines);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
