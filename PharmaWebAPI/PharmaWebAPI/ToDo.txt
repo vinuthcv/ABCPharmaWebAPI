@@ -1,6 +1,6 @@
 ﻿1. Basic CRUD operations - Done.
 2. Logger for exceptions.
-3. Logger with timestamp for each request.
+3. Logger with timestamp for each request. 
 4. Logger to request and response capture.
 5. Action filters.
 6. Routing attribute

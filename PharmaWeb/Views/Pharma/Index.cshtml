@@ -12,7 +12,7 @@
 @using (Html.BeginForm("Index", "Pharma"))
 {
     <span>Search by company name :</span>
-    <input type="text" id="search" name="search" value=""/>
+    <input type="text" id="search" name="search" value="" />
 
     <input type="submit" id="submit">
 }
@@ -35,7 +35,17 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        var bgColor = "";
+        if (item.Expiry <= DateTime.Now.AddDays(30))
+        {
+            bgColor = "red";
+        }
+        else if (item.Quantity < 20)
+        {
+            bgColor = "Yellow";
+        }
+
+        <tr bgcolor="@bgColor">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -49,9 +59,9 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

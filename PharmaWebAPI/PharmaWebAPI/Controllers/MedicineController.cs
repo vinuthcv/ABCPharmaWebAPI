@@ -40,6 +40,7 @@ namespace PharmaWebAPI.Controllers
         }
 
         // GET api/values/5
+        //[Route("api/medicine/{id}")]
         public IHttpActionResult Get(int id)
         {
             try
